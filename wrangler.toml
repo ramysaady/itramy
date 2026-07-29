@@ -1,0 +1,8 @@
+name = "itramy"
+compatibility_date = "2024-07-29"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
+html_handling = "auto-trailing-slash"
