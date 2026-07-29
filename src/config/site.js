@@ -1,5 +1,5 @@
 // Replace WHATSAPP_NUMBER with the live number in international format, digits only.
-const WHATSAPP_NUMBER = '9611234567';
+const WHATSAPP_NUMBER = '96170417738';
 
 export const site = {
   name: 'IT Ramy',
@@ -10,7 +10,7 @@ export const site = {
   description:
     'Helping businesses build reliable, secure and high-performance networks.',
   location: 'Tripoli, Lebanon',
-  email: 'hello@itramy.com',
+  email: 'info@itramy.com',
   linkedin: 'https://www.linkedin.com/in/itramy',
   github: 'https://github.com/ramysaady',
   whatsappNumber: WHATSAPP_NUMBER,
