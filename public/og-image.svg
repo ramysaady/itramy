@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05080F"/>
+      <stop offset="0.55" stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#153670"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#2F80FF"/>
+      <stop offset="1" stop-color="#7DD3FC"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#2F80FF"/>
+      <stop offset="1" stop-color="#7DD3FC"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#94A3B8" stroke-opacity="0.10" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1010" cy="140" r="220" fill="#2F80FF" fill-opacity="0.16"/>
+  <circle cx="180" cy="560" r="180" fill="#7DD3FC" fill-opacity="0.10"/>
+
+  <g transform="translate(96 92)">
+    <rect width="96" height="96" rx="28" fill="url(#mark)"/>
+    <g fill="#05080F" transform="translate(48 48) scale(2)">
+      <circle cx="0" cy="0" r="4"/>
+      <circle cx="-12" cy="-12" r="2.75"/>
+      <circle cx="12" cy="-12" r="2.75"/>
+      <circle cx="-12" cy="12" r="2.75"/>
+      <circle cx="12" cy="12" r="2.75"/>
+      <path d="M-10-10l7 7m13-7l-7 7m-6 6l-7 7m13-7l7 7" stroke="#05080F" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </g>
+  </g>
+
+  <text x="96" y="316" font-family="Sora, Inter, Segoe UI, sans-serif" font-size="76" font-weight="800" fill="#FFFFFF">IT Ramy</text>
+  <text x="96" y="388" font-family="Inter, Segoe UI, sans-serif" font-size="38" font-weight="600" fill="#8EC5FF">IT &amp; Network Automation Specialist</text>
+  <text x="96" y="462" font-family="Inter, Segoe UI, sans-serif" font-size="30" fill="#CBD5E1">Reliable, secure and high-performance networks</text>
+
+  <rect x="96" y="512" width="360" height="6" rx="3" fill="url(#accent)"/>
+
+  <g font-family="Inter, Segoe UI, sans-serif" font-size="24" fill="#94A3B8">
+    <text x="96" y="574">MikroTik</text>
+    <text x="240" y="574">ISP</text>
+    <text x="320" y="574">Hotspot</text>
+    <text x="452" y="574">Servers</text>
+    <text x="576" y="574">Security</text>
+    <text x="704" y="574">Automation</text>
+  </g>
+
+  <text x="1104" y="574" text-anchor="end" font-family="Inter, Segoe UI, sans-serif" font-size="26" font-weight="600" fill="#FFFFFF">itramy.com</text>
+</svg>

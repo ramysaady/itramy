@@ -1,42 +1,123 @@
-# itramy.com
+# IT Ramy — itramy.com
 
-موقع شخصي مجاني على GitHub Pages.
+Personal business website for **IT Ramy**, IT & Network Automation Specialist based in Tripoli, Lebanon.
 
-## رفع الموقع على GitHub
+Built as a fast, SEO-ready single page marketing site with no backend and no database. Leads arrive
+through WhatsApp and email.
 
-1. أنشئ حساب على [GitHub](https://github.com) إذا ما عندك.
-2. أنشئ repository جديد باسم `itramy` (Public).
-3. ارفع الملفات:
+## Stack
+
+- React 18 + Vite 6
+- Tailwind CSS 3 (dark mode via `class`)
+- Framer Motion for scroll and layout animation
+- lucide-react icons
+- vite-plugin-pwa (installable, offline precache)
+- Deployed on Cloudflare Pages
+
+## Local development
 
 ```bash
-git add .
-git commit -m "Initial website"
-git branch -M main
-git remote add origin https://github.com/ramysaady/itramy.git
-git push -u origin main
+npm install
+npm run dev
 ```
 
-4. من GitHub: **Settings** → **Pages**
-5. **Source**: Deploy from branch → `main` → `/ (root)` → Save
+Then open the printed local URL (default `http://localhost:5173`).
 
-## ربط الدومين itramy.com (Namecheap)
+## Commands
 
-### 1) DNS في Namecheap
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Start the dev server with hot reload |
+| `npm run build` | Production build into `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run icons` | Regenerate the PWA PNG icons from the brand mark |
 
-اذهب إلى: **Domain List** → **itramy.com** → **Manage** → **Advanced DNS**
+## Configuration
 
-أضف هذه السجلات:
+All contact details and navigation live in one file:
 
-| Type | Host | Value |
-|------|------|-------|
-| A Record | `@` | `185.199.108.153` |
-| A Record | `@` | `185.199.109.153` |
-| A Record | `@` | `185.199.110.153` |
-| A Record | `@` | `185.199.111.153` |
-| CNAME Record | `www` | `ramysaady.github.io` |
+```text
+src/config/site.js
+```
 
-### 2) تفعيل الدومين في GitHub
+Before going live, set the real WhatsApp number there. Use international format, digits only, no
+`+` and no spaces:
 
-**Settings** → **Pages** → **Custom domain** → اكتب `itramy.com` → Save
+```js
+const WHATSAPP_NUMBER = '9613123456';
+```
 
-انتظر 10–30 دقيقة حتى يشتغل الدومين.
+The same file also holds the email address, LinkedIn URL, location and the pre-filled WhatsApp
+message.
+
+## Project structure
+
+```text
+public/            Static assets served as-is
+  _headers         Cloudflare Pages security and caching headers
+  _redirects       SPA fallback so client routes resolve
+  favicon.svg      Brand favicon
+  og-image.svg     Open Graph / social preview image
+  robots.txt       Crawler rules
+  sitemap.xml      Sitemap for search engines
+  icons/           Generated PWA icons (180, 192, 512)
+
+scripts/
+  generate-icons.mjs   Renders the PNG icons with zero image dependencies
+
+src/
+  components/
+    layout/        Navbar, Footer, Loader, BackToTop, FloatingWhatsApp, ScrollProgress
+    sections/      Hero, About, Services, WhyMe, Portfolio, Skills, Testimonials, Contact
+    ui/            Reveal, SectionHeading, Counter, Logo, ThemeToggle, ParticleField, Seo
+  config/site.js   Single source of truth for contact details and navigation
+  data/            Content for services, portfolio, skills, testimonials, about, why-me
+  hooks/           useTheme, useTypewriter, useActiveSection
+  pages/           Home, NotFound
+  App.jsx          Shell, routing, loading screen
+  main.jsx         Entry point
+  index.css        Tailwind layers and reusable component classes
+```
+
+## Editing content
+
+Content is data-driven, so no JSX changes are needed for routine updates:
+
+- Services: `src/data/services.js`
+- Portfolio projects: `src/data/portfolio.js`
+- Skills and levels: `src/data/skills.js`
+- Testimonials: `src/data/testimonials.js`
+- About text, expertise cards and stats: `src/data/about.js`
+- Why-choose-me cards and process steps: `src/data/whyMe.js`
+
+## Deploying to Cloudflare Pages
+
+The repository is connected to Cloudflare Pages. Use these build settings:
+
+| Setting | Value |
+|---------|-------|
+| Framework preset | None |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Production branch | `main` |
+| Node version | 20 or newer |
+
+Pushing to `main` triggers a new deployment automatically.
+
+DNS for `itramy.com` is managed in Cloudflare. The apex record is handled by the Pages project and
+`www` is a proxied CNAME to the `pages.dev` hostname. Email records for Private Email
+(`MX`, `SPF`, `mail`, `autoconfig`, `autodiscover`, `_autodiscover._tcp`) must stay in place, with the
+mail hostnames set to **DNS only**.
+
+## Performance and accessibility notes
+
+- Route-level code splitting plus manual vendor chunks for React, Framer Motion and icons
+- Animated particle background pauses when scrolled out of view and is disabled under
+  `prefers-reduced-motion`
+- Fonts load with `display=swap` and preconnect hints
+- Semantic landmarks, skip link, visible focus rings and `aria-label`s on all icon-only controls
+- Long-lived immutable caching for hashed assets, revalidation for `index.html`
+
+## License
+
+Copyright © IT Ramy. All rights reserved.
