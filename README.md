@@ -54,8 +54,7 @@ message.
 
 ```text
 public/            Static assets served as-is
-  _headers         Cloudflare Pages security and caching headers
-  _redirects       SPA fallback so client routes resolve
+  _headers         Cloudflare security and caching headers
   favicon.svg      Brand favicon
   og-image.svg     Open Graph / social preview image
   robots.txt       Crawler rules
