@@ -21,16 +21,23 @@ export default function About() {
           <Reveal direction="right" className="lg:col-span-5">
             <div className="relative">
               <div className="card overflow-hidden rounded-4xl p-3">
-                <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 via-brand-500 to-sky-400">
-                  <div className="absolute inset-0 bg-grid-dark bg-[size:32px_32px] opacity-30" />
-                  <div className="relative flex flex-col items-center gap-4 text-white">
-                    <span className="flex h-28 w-28 items-center justify-center rounded-full border border-white/30 bg-white/10 font-display text-4xl font-extrabold backdrop-blur-sm">
-                      IR
-                    </span>
-                    <div className="text-center">
-                      <p className="font-display text-xl font-bold">{site.name}</p>
-                      <p className="mt-1 text-sm text-white/80">{site.role}</p>
-                    </div>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink-950">
+                  <img
+                    src="/images/ramy.png"
+                    alt={`${site.name}, ${site.role}`}
+                    width={800}
+                    height={1000}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-[center_18%] grayscale contrast-[1.05]"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/20 to-transparent"
+                    aria-hidden="true"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <p className="font-display text-xl font-bold text-white">{site.name}</p>
+                    <p className="mt-1 text-sm text-slate-300">{site.role}</p>
                   </div>
                 </div>
               </div>
