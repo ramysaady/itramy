@@ -1,4 +1,4 @@
-import { Briefcase, Network } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import Reveal from '../ui/Reveal';
 import SectionHeading from '../ui/SectionHeading';
 import { projects } from '../../data/portfolio';
@@ -11,23 +11,32 @@ export default function Portfolio() {
           eyebrow="Portfolio"
           icon={Briefcase}
           title="Selected deployments"
-          description="A snapshot of infrastructure delivered for providers, hospitality, education and enterprise clients."
+          description="Real MikroTik, Ubiquiti and Ruijie infrastructure delivered for providers, hospitality, education and enterprise clients."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {projects.map((project, index) => (
             <Reveal key={project.title} delay={0.05 * index}>
               <article className="card card-hover group flex h-full flex-col overflow-hidden rounded-3xl">
-                <div
-                  className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br ${project.accent}`}
-                >
-                  <div className="absolute inset-0 bg-grid-dark bg-[size:28px_28px] opacity-25" />
-                  <Network
-                    className="h-10 w-10 text-white/85 transition duration-500 group-hover:scale-110"
+                <div className="relative aspect-[4/3] overflow-hidden bg-ink-900">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} — ${project.brand} deployment`}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-950/10 to-transparent"
                     aria-hidden="true"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-black/25 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+                  <span className="absolute left-4 top-4 rounded-full bg-black/45 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
                     {project.category}
+                  </span>
+                  <span className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
+                    {project.brand}
                   </span>
                 </div>
 

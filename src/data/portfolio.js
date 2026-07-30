@@ -6,7 +6,8 @@ export const projects = [
       'Core routing, PPPoE authentication and bandwidth management for a regional provider.',
     metric: '4,000+ subscribers',
     tags: ['MikroTik', 'PPPoE', 'RADIUS'],
-    accent: 'from-brand-600 to-sky-400',
+    image: '/images/portfolio/isp-infrastructure.jpg',
+    brand: 'MikroTik',
   },
   {
     title: 'MikroTik Deployment',
@@ -14,8 +15,9 @@ export const projects = [
     description:
       'Standardised RouterOS configuration templates rolled out across every branch.',
     metric: '18 sites unified',
-    tags: ['RouterOS', 'VPN', 'Scripting'],
-    accent: 'from-indigo-600 to-brand-400',
+    tags: ['MikroTik', 'RouterOS', 'VPN'],
+    image: '/images/portfolio/mikrotik-deployment.jpg',
+    brand: 'MikroTik',
   },
   {
     title: 'Hotel Network',
@@ -23,8 +25,9 @@ export const projects = [
     description:
       'Guest hotspot, staff VLAN separation and per-room WiFi coverage with roaming.',
     metric: '120 rooms covered',
-    tags: ['Hotspot', 'VLAN', 'WiFi'],
-    accent: 'from-cyan-600 to-emerald-400',
+    tags: ['Ubiquiti', 'UniFi', 'VLAN'],
+    image: '/images/portfolio/hotel-network.jpg',
+    brand: 'Ubiquiti',
   },
   {
     title: 'Restaurant WiFi',
@@ -32,35 +35,39 @@ export const projects = [
     description:
       'Branded captive portal, POS traffic priority and isolated guest access.',
     metric: 'Zero POS downtime',
-    tags: ['Captive Portal', 'QoS', 'Security'],
-    accent: 'from-amber-500 to-orange-400',
+    tags: ['Ubiquiti', 'Hotspot', 'QoS'],
+    image: '/images/portfolio/restaurant-wifi.jpg',
+    brand: 'Ubiquiti',
   },
   {
     title: 'Enterprise Office',
     category: 'Corporate',
     description:
-      'Active Directory, structured cabling, firewall policy and centralised backups.',
+      'Secure office LAN with UniFi switching, firewall policy and centralised backups.',
     metric: '250 workstations',
-    tags: ['Windows Server', 'Firewall', 'Backup'],
-    accent: 'from-slate-600 to-brand-400',
+    tags: ['Ubiquiti', 'Firewall', 'Backup'],
+    image: '/images/portfolio/enterprise-office.jpg',
+    brand: 'Ubiquiti',
   },
   {
     title: 'Cloudflare Website',
     category: 'Web Delivery',
     description:
-      'Static site deployment with edge caching, WAF rules and automatic SSL.',
+      'Edge-ready site deployment backed by Ruijie access and secure DNS with Cloudflare.',
     metric: 'Sub-second global load',
-    tags: ['Cloudflare', 'CI/CD', 'DNS'],
-    accent: 'from-orange-500 to-amber-400',
+    tags: ['Ruijie', 'Cloudflare', 'DNS'],
+    image: '/images/portfolio/cloudflare-website.jpg',
+    brand: 'Ruijie',
   },
   {
     title: 'AI Dashboard',
     category: 'Automation',
     description:
-      'Live network telemetry with AI-generated incident summaries and daily reports.',
+      'Live MikroTik and UniFi telemetry with AI-generated incident summaries and daily reports.',
     metric: '70% less manual reporting',
-    tags: ['AI', 'Monitoring', 'Dashboards'],
-    accent: 'from-violet-600 to-fuchsia-400',
+    tags: ['MikroTik', 'Ubiquiti', 'Monitoring'],
+    image: '/images/portfolio/ai-dashboard.jpg',
+    brand: 'MikroTik',
   },
   {
     title: 'IoT System',
@@ -68,7 +75,8 @@ export const projects = [
     description:
       'Sensor gateways for temperature, power and access with alerting workflows.',
     metric: '140 devices online',
-    tags: ['IoT', 'MQTT', 'Alerting'],
-    accent: 'from-teal-600 to-lime-400',
+    tags: ['Ruijie', 'IoT', 'Alerting'],
+    image: '/images/portfolio/iot-system.jpg',
+    brand: 'Ruijie',
   },
 ];
