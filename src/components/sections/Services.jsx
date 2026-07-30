@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowUpRight, LayoutGrid } from 'lucide-react';
 import Reveal from '../ui/Reveal';
 import SectionHeading from '../ui/SectionHeading';
+import SpotlightCard from '../ui/SpotlightCard';
 import { serviceCategories, services } from '../../data/services';
 import { whatsappLink } from '../../config/site';
 
@@ -51,7 +52,7 @@ export default function Services() {
         <motion.div layout className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {visible.map((service, index) => (
-              <motion.article
+              <motion.div
                 key={service.title}
                 layout
                 initial={{ opacity: 0, y: 18, scale: 0.98 }}
@@ -62,29 +63,34 @@ export default function Services() {
                   delay: Math.min(index * 0.03, 0.25),
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="card card-hover group relative flex flex-col gap-4 rounded-3xl p-6"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500/15 to-sky-400/10 text-brand-600 ring-1 ring-inset ring-brand-500/15 transition group-hover:scale-105 dark:text-brand-300">
-                  <service.icon className="h-5 w-5" aria-hidden="true" />
-                </span>
+                <SpotlightCard
+                  as="article"
+                  className="card card-hover group flex h-full min-h-[230px] flex-col gap-5 rounded-3xl p-6"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500/15 to-sky-400/10 text-brand-600 ring-1 ring-inset ring-brand-500/15 transition duration-500 group-hover:scale-110 group-hover:rotate-3 dark:text-brand-300">
+                      <service.icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span className="flex h-8 w-8 translate-x-2 -translate-y-2 items-center justify-center rounded-full border border-slate-200/80 text-slate-400 opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 dark:border-white/10">
+                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                  </div>
 
-                <div>
-                  <h3 className="text-base font-semibold text-slate-900 dark:text-white">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                    {service.description}
-                  </p>
-                </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                      {service.description}
+                    </p>
+                  </div>
 
-                <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400 transition group-hover:text-brand-600 dark:group-hover:text-brand-300">
-                  {service.category}
-                  <ArrowUpRight
-                    className="h-3.5 w-3.5 opacity-0 transition group-hover:opacity-100"
-                    aria-hidden="true"
-                  />
-                </span>
-              </motion.article>
+                  <span className="mt-auto inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-brand-600 dark:group-hover:text-brand-300">
+                    {service.category}
+                  </span>
+                </SpotlightCard>
+              </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>

@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Loader from './components/layout/Loader';
@@ -15,15 +15,20 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 export default function App() {
   const { theme, toggleTheme } = useTheme();
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setLoading(false), 1100);
+    const timer = window.setTimeout(() => setLoading(false), 650);
     return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = loading ? 'hidden' : '';
   }, [loading]);
+
+  useEffect(() => {
+    if (location.pathname !== '/') window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [location.pathname]);
 
   return (
     <>
@@ -40,14 +45,22 @@ export default function App() {
 
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
 
-      <main>
-        <Suspense fallback={<div className="min-h-[70vh]" />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </main>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.main
+          key={location.pathname}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Suspense fallback={<div className="min-h-[70vh]" />}>
+            <Routes location={location}>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </motion.main>
+      </AnimatePresence>
 
       <Footer />
       <BackToTop />

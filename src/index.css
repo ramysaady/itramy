@@ -15,6 +15,8 @@
   body {
     @apply bg-white text-slate-700 antialiased dark:bg-ink-950 dark:text-slate-300;
     font-feature-settings: 'cv02', 'cv03', 'cv04';
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
   }
 
   h1,
@@ -54,7 +56,7 @@
   }
 
   .section {
-    @apply scroll-mt-24 py-20 sm:py-28 lg:py-32;
+    @apply relative scroll-mt-24 py-24 sm:py-32 lg:py-36;
   }
 
   .glass {
@@ -62,19 +64,19 @@
   }
 
   .card {
-    @apply glass rounded-3xl shadow-soft transition duration-300;
+    @apply glass rounded-3xl shadow-soft transition duration-500;
   }
 
   .card-hover {
-    @apply hover:-translate-y-1 hover:border-brand-300/70 hover:shadow-lift dark:hover:border-brand-400/30;
+    @apply hover:-translate-y-1.5 hover:border-brand-300/70 hover:shadow-lift dark:hover:border-brand-400/30;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-300 disabled:pointer-events-none disabled:opacity-60;
+    @apply relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-semibold transition duration-300 disabled:pointer-events-none disabled:opacity-60;
   }
 
   .btn-primary {
-    @apply btn bg-gradient-to-r from-brand-600 to-brand-400 text-white shadow-glow hover:from-brand-500 hover:to-brand-300 hover:shadow-lift;
+    @apply btn bg-gradient-to-r from-brand-700 via-brand-600 to-brand-400 text-white shadow-glow hover:-translate-y-0.5 hover:from-brand-600 hover:via-brand-500 hover:to-brand-300 hover:shadow-lift;
   }
 
   .btn-ghost {
@@ -82,7 +84,7 @@
   }
 
   .btn-whatsapp {
-    @apply btn bg-gradient-to-r from-emerald-600 to-emerald-400 text-white shadow-glow hover:from-emerald-500 hover:to-emerald-300;
+    @apply btn bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-400 text-white shadow-glow hover:-translate-y-0.5 hover:from-emerald-600 hover:via-emerald-500 hover:to-emerald-300;
   }
 
   .eyebrow {
@@ -90,11 +92,11 @@
   }
 
   .heading-xl {
-    @apply text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl;
+    @apply text-[2.65rem] font-extrabold leading-[1.02] tracking-[-0.045em] sm:text-6xl lg:text-7xl;
   }
 
   .heading-lg {
-    @apply text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.75rem];
+    @apply text-3xl font-bold leading-[1.08] tracking-[-0.035em] sm:text-5xl;
   }
 
   .lede {
@@ -102,7 +104,64 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-brand-600 via-brand-400 to-sky-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-700 via-brand-500 to-sky-400 bg-clip-text text-transparent dark:from-brand-300 dark:via-brand-400 dark:to-cyan-300;
+  }
+
+  .spotlight-card {
+    --spotlight-x: 50%;
+    --spotlight-y: 50%;
+    --spotlight-opacity: 0;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .spotlight-card::before {
+    background: radial-gradient(
+      360px circle at var(--spotlight-x) var(--spotlight-y),
+      var(--spotlight-color),
+      transparent 66%
+    );
+    content: '';
+    inset: 0;
+    opacity: var(--spotlight-opacity);
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 280ms ease;
+    z-index: -1;
+  }
+
+  .console-shell {
+    transform: perspective(1200px) rotateY(-2deg) rotateX(1deg);
+    transform-origin: center center;
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .console-shell:hover {
+    transform: perspective(1200px) rotateY(0deg) rotateX(0deg) translateY(-4px);
+  }
+
+  .aurora {
+    filter: blur(72px);
+    mix-blend-mode: multiply;
+    opacity: 0.24;
+    will-change: transform;
+  }
+
+  .dark .aurora {
+    mix-blend-mode: screen;
+    opacity: 0.2;
+  }
+
+  .premium-divider {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(47, 128, 255, 0.3) 25%,
+      rgba(125, 211, 252, 0.3) 75%,
+      transparent
+    );
+    height: 1px;
   }
 }
 
@@ -114,4 +173,32 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+}
+
+@keyframes aurora-one {
+  0%,
+  100% {
+    transform: translate3d(-8%, -4%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(20%, 10%, 0) scale(1.12);
+  }
+}
+
+@keyframes aurora-two {
+  0%,
+  100% {
+    transform: translate3d(8%, 8%, 0) scale(1.08);
+  }
+  50% {
+    transform: translate3d(-18%, -8%, 0) scale(0.94);
+  }
+}
+
+.animate-aurora-one {
+  animation: aurora-one 18s ease-in-out infinite;
+}
+
+.animate-aurora-two {
+  animation: aurora-two 22s ease-in-out infinite;
 }

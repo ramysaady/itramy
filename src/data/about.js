@@ -53,8 +53,8 @@ export const expertise = [
 ];
 
 export const stats = [
-  { value: 320, suffix: '+', label: 'Deployments delivered' },
-  { value: 12, suffix: '+', label: 'Years in IT & networking' },
-  { value: 99.9, suffix: '%', label: 'Average network uptime', decimals: 1 },
-  { value: 24, suffix: '/7', label: 'Support availability' },
+  { value: 25, suffix: '+', label: 'Specialist IT services' },
+  { value: 7, suffix: '', label: 'Core expertise areas' },
+  { value: 4, suffix: '-step', label: 'Transparent delivery process' },
+  { value: 1, suffix: ':1', label: 'Direct specialist access' },
 ];

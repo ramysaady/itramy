@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Seo
-        title={`${site.name} | ${site.tagline}`}
+        title={`${site.name} | IT & Network Solutions in Lebanon`}
         description={`${site.description} MikroTik, ISP infrastructure, hotspot systems, servers, security and automation in ${site.location}.`}
       />
       <Hero />

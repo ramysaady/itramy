@@ -86,7 +86,7 @@ export default function Navbar({ theme, onToggleTheme }) {
             className="btn-primary hidden !px-5 !py-2.5 sm:inline-flex"
           >
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            WhatsApp
+            Free assessment
           </a>
 
           <button

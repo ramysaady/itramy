@@ -2,6 +2,7 @@ import { CheckCircle2, MapPin, UserRound } from 'lucide-react';
 import Reveal from '../ui/Reveal';
 import SectionHeading from '../ui/SectionHeading';
 import Counter from '../ui/Counter';
+import SpotlightCard from '../ui/SpotlightCard';
 import { aboutSecondary, aboutText, expertise, stats } from '../../data/about';
 import { site } from '../../config/site';
 
@@ -85,12 +86,13 @@ export default function About() {
         <div className="mt-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => (
             <Reveal key={stat.label} delay={0.06 * index}>
-              <div className="card card-hover rounded-3xl p-6 text-center">
+              <SpotlightCard className="card card-hover h-full rounded-3xl p-7 text-center">
                 <p className="font-display text-3xl font-extrabold text-slate-900 sm:text-4xl dark:text-white">
                   <Counter value={stat.value} suffix={stat.suffix} decimals={stat.decimals ?? 0} />
                 </p>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{stat.label}</p>
-              </div>
+                <div className="mx-auto mt-5 h-px w-12 bg-gradient-to-r from-transparent via-brand-500/60 to-transparent" />
+              </SpotlightCard>
             </Reveal>
           ))}
         </div>
