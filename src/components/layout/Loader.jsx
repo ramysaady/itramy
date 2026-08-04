@@ -17,7 +17,7 @@ export default function Loader() {
         animate={{ scale: [1, 1.06, 1] }}
         transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <Logo className="h-16 w-16" />
+        <Logo className="h-14 w-auto" />
       </motion.div>
 
       <div className="text-center">

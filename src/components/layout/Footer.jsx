@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              <Logo className="h-10 w-10" />
+              <Logo className="h-10 w-auto" />
               <div>
                 <p className="font-display text-lg font-bold text-slate-900 dark:text-white">
                   {site.name}
