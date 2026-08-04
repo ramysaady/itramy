@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { MessageCircle, Menu, X } from 'lucide-react';
 import Logo from '../ui/Logo';
 import ThemeToggle from '../ui/ThemeToggle';
-import { navLinks, site, whatsappLink } from '../../config/site';
+import { navLinks, whatsappLink } from '../../config/site';
 import { useActiveSection } from '../../hooks/useActiveSection';
 
 const sectionIds = navLinks.map((link) => link.href.replace('#', ''));
@@ -36,16 +36,8 @@ export default function Navbar({ theme, onToggleTheme }) {
       }`}
     >
       <nav className="container-page flex h-16 items-center justify-between gap-4 sm:h-20">
-        <a href="#top" className="flex items-center gap-3" aria-label="IT Ramy home">
-          <Logo className="h-9 w-auto" />
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-base font-bold text-slate-900 dark:text-white">
-              {site.name}
-            </span>
-            <span className="mt-0.5 text-[11px] font-medium text-slate-500 dark:text-slate-400">
-              Network Specialist
-            </span>
-          </span>
+        <a href="#top" className="flex items-center" aria-label="IT Ramy home">
+          <Logo className="h-10 w-auto sm:h-11" />
         </a>
 
         <div className="hidden items-center gap-1 lg:flex">

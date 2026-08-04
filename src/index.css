@@ -163,6 +163,18 @@
     );
     height: 1px;
   }
+
+  .logo-wordmark {
+    display: block;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
+    user-select: none;
+  }
+
+  .dark .logo-wordmark {
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+  }
 }
 
 @layer utilities {

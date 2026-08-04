@@ -15,14 +15,9 @@ export default function Footer() {
       <div className="container-page py-14 sm:py-16">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-3">
-              <Logo className="h-10 w-auto" />
-              <div>
-                <p className="font-display text-lg font-bold text-slate-900 dark:text-white">
-                  {site.name}
-                </p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">{site.role}</p>
-              </div>
+            <div className="space-y-3">
+              <Logo className="h-12 w-auto sm:h-14" />
+              <p className="text-sm text-slate-500 dark:text-slate-400">{site.role}</p>
             </div>
 
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
