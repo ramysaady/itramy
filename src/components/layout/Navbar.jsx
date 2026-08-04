@@ -37,7 +37,7 @@ export default function Navbar({ theme, onToggleTheme }) {
     >
       <nav className="container-page flex h-16 items-center justify-between gap-4 sm:h-20">
         <a href="#top" className="flex items-center" aria-label="IT Ramy home">
-          <Logo className="h-10 w-auto sm:h-11" />
+          <Logo className="h-11 w-auto sm:h-12 lg:h-14" />
         </a>
 
         <div className="hidden items-center gap-1 lg:flex">

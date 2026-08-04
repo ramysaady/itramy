@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="space-y-3">
-              <Logo className="h-12 w-auto sm:h-14" />
+              <Logo className="h-14 w-auto sm:h-16" />
               <p className="text-sm text-slate-500 dark:text-slate-400">{site.role}</p>
             </div>
 
